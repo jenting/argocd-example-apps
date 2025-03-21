@@ -1,0 +1,121 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2024-08-06T12:34:12Z"
+  generation: 38
+  name: guestbook
+  namespace: argocd
+  resourceVersion: "1425"
+  uid: 87ecca2e-b7fd-464d-b5a9-aef2e2e3599d
+spec:
+  destination:
+    namespace: test
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: guestbook
+    repoURL: https://github.com/jenting/argocd-example-apps
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - PruneLast=true
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2024-08-06T12:34:55Z"
+    deployedAt: "2024-08-06T12:34:58Z"
+    id: 0
+    revision: d7927a27b4533926b7d86b5f249cd9ebe7625e90
+    source:
+      path: guestbook
+      repoURL: https://github.com/jenting/argocd-example-apps
+      targetRevision: HEAD
+  - deployStartedAt: "2024-08-06T12:35:42Z"
+    deployedAt: "2024-08-06T12:35:43Z"
+    id: 1
+    revision: 2d3904d593b592ca8660553ff0ed2ec317286d92
+    source:
+      path: guestbook
+      repoURL: https://github.com/jenting/argocd-example-apps
+      targetRevision: HEAD
+  - deployStartedAt: "2024-08-06T12:39:13Z"
+    deployedAt: "2024-08-06T12:39:14Z"
+    id: 2
+    revision: 1b57bbbbf770b1f4eaadc0e138ab98b7e6fac78d
+    source:
+      path: guestbook
+      repoURL: https://github.com/jenting/argocd-example-apps
+      targetRevision: HEAD
+  operationState:
+    finishedAt: "2024-08-06T12:39:14Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 1b57bbbbf770b1f4eaadc0e138ab98b7e6fac78d
+        syncOptions:
+        - PruneLast=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2024-08-06T12:39:13Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/guestbook-ui unchanged
+        name: guestbook-ui
+        namespace: test
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/guestbook-ui configured
+        name: guestbook-ui
+        namespace: test
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 1b57bbbbf770b1f4eaadc0e138ab98b7e6fac78d
+      source:
+        path: guestbook
+        repoURL: https://github.com/jenting/argocd-example-apps
+        targetRevision: HEAD
+  reconciledAt: "2024-08-06T12:39:14Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: Service
+    name: guestbook-ui
+    namespace: test
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: guestbook-ui
+    namespace: test
+    status: OutOfSync
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - gcr.io/heptio-images/ks-guestbook-demo:0.2
+  sync:
+    comparedTo:
+      destination:
+        namespace: test
+        server: https://kubernetes.default.svc
+      source:
+        path: guestbook
+        repoURL: https://github.com/jenting/argocd-example-apps
+        targetRevision: HEAD
+    revision: 2d3904d593b592ca8660553ff0ed2ec317286d92
+    status: OutOfSync
