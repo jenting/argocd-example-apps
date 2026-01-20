@@ -7,7 +7,3 @@ helmGlobals:
 helmCharts:
   - name: helm-guestbook
     valuesFile: values-overwrite.yaml
-    # releaseName: guestbook
-    # namespace: default
-    # version: 0.1.0
-    # valuesFile: values.yaml
