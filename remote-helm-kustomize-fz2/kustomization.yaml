@@ -1,8 +1,16 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-helmCharts:
-  - name: wordpress
-    version: 9.0.3
-    repo: https://charts.helm.sh/stable
-    valuesFile: values-fz2.yaml
+resources:
+- ../remote-helm-kustomize
+
+patches:
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: release-name-wordpress
+  patch: |
+    - op: replace
+      path: /spec/replicas
+      value: 10
