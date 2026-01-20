@@ -6,4 +6,4 @@ helmGlobals:
 
 helmCharts:
   - name: helm-guestbook
-    valuesFile: values-overwrite.yaml
+    valuesFile: values-fz2.yaml
