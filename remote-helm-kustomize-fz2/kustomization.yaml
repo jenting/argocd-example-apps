@@ -14,3 +14,12 @@ patches:
     - op: replace
       path: /spec/replicas
       value: 0
+- target:
+    group: apps
+    version: v1
+    kind: StatefulSet
+    name: release-name-mariadb
+  patch: |
+    - op: replace
+      path: /spec/replicas
+      value: 0
