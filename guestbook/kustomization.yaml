@@ -4,7 +4,7 @@ kind: Kustomization
 # 1. Point to your existing deployment file
 resources:
   - guestbook-ui-deployment.yaml
-  - guestbook-ui-service.yaml
+  - guestbook-ui-svc.yaml
 
 # 2. Define the overwrite (Strategic Merge Patch)
 patches:
