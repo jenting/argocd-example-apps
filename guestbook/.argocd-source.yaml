@@ -1,3 +1,9 @@
 kustomize:
-  spec:
-    replicas: 1
+  patches:
+    - patch: |
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: guestbook-ui
+        spec:
+          replicas: 1
