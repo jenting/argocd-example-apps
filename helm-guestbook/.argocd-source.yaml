@@ -1,6 +1,6 @@
 helm:
   parameters:
   - name: replicaCount
-    value: "10"
+    value: "3"
   - name: image.pullPolicy
     value: Always
