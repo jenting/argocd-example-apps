@@ -1,2 +1,3 @@
 kustomize:
-  replicas: 1
+  spec:
+    replicas: 1
