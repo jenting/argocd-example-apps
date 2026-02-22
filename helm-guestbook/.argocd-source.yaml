@@ -1,3 +1,4 @@
-kustomize:
-  images:
-    - gcr.io/heptio-images/ks-guestbook-demo:0.2
+helm:
+  parameters:
+  - name: replicaCount
+    value: "10"
